@@ -1,3 +1,5 @@
+@import "./sronly.css";
+
 :root {
   --primary-dark: hsl(0, 0%, 0%);
   --secondary-dark: hsl(0, 0%, 41%);
@@ -16,6 +18,7 @@
 body,
 html {
   height: 100%;
+  /* color: var(--white); */
 }
 html {
   font-size: 62.5%;
@@ -24,8 +27,9 @@ html {
 body {
   padding: 0;
   margin: 0;
+  min-height: 100vh;
   box-sizing: border-box;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 ul li {
@@ -46,17 +50,18 @@ ul li {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: flex-start;
   margin: 0 auto;
   align-items: center;
   justify-content: space-between;
 }
 a {
-  margin: 0 1.2rem;
   color: var(--white);
   font-size: 1.4rem;
   text-decoration: none;
   font-weight: 500;
+}
+.navigation a {
+  margin: 0 1.2rem;
 }
 .attribution {
   font-size: 11px;
@@ -109,12 +114,12 @@ font-family: 'Josefin Sans', sans-serif; */
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 1fr);
   height: 50rem;
-  background-image: url('../../images/desktop/image-interactive.jpg');
+  background-image: url("../../images/desktop/image-interactive.jpg");
   background-repeat: no-repeat;
 }
 
 .mission p {
-  font-family: 'Alata';
+  font-family: "Alata";
   font-size: 1.5rem;
   line-height: 2;
   color: var(--dark-gray);
@@ -132,6 +137,7 @@ font-family: 'Josefin Sans', sans-serif; */
 }
 .creations {
   padding-top: 12rem;
+  padding-bottom: 12rem;
 }
 .creation-title {
   display: flex;
@@ -147,11 +153,12 @@ font-family: 'Josefin Sans', sans-serif; */
 .creation-title button {
   padding: 1rem 4.1rem;
   background-color: var(--white);
-  font-family: 'Alata', sans-serif;
+  font-family: "Alata", sans-serif;
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 1.5rem;
   border: 1px solid var(--secondary-dark);
+  cursor: pointer;
 }
 
 .wrapper {
@@ -166,9 +173,26 @@ font-family: 'Josefin Sans', sans-serif; */
   position: relative;
   flex: 0 0 22.75%;
   min-height: 40rem;
-  border: 1px solid black;
   margin-top: 3.4rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(80%);
 }
+.card::after {
+  position: absolute;
+  content: "";
+  background-image: linear-gradient(
+    to right,
+    rgba(51, 50, 50, 0.3),
+    rgba(51, 50, 50, 0.3)
+  );
+  inset: 0 0 0 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
 .card img {
   position: absolute;
   width: 100%;
@@ -176,35 +200,150 @@ font-family: 'Josefin Sans', sans-serif; */
   object-fit: cover;
   z-index: 0;
 }
+
 .card h2 {
   z-index: 1;
-  color: rgb(255, 255, 255);
+  margin-bottom: 3rem;
+  margin-left: 3rem;
+  width: 80%;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: left;
+  text-transform: uppercase;
+  color: var(--white);
 }
-.card--2,
-.card--3,
-.card--4 {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+
+.card--1 {
+  background-image: url("../../images/desktop/image-deep-earth.jpg");
 }
 .card--2 {
-  background-image: url('../../images/desktop/image-night-arcade.jpg');
+  background-image: url("../../images/desktop/image-night-arcade.jpg");
+}
+.card--3 {
+  background-image: url("../../images/desktop/image-soccer-team.jpg");
+}
+.card--4 {
+  background-image: url("../../images/desktop/image-grid.jpg");
+}
+.card--5 {
+  background-image: url("../../images/desktop/image-from-above.jpg");
+}
+.card--6 {
+  background-image: url("../../images/desktop/image-pocket-borealis.jpg");
+}
+.card--7 {
+  background-image: url("../../images/desktop/image-curiosity.jpg");
+}
+.card--8 {
+  background-image: url("../../images/desktop/image-fisheye.jpg");
 }
 /* min-height:250px height:300px; */
 /* this have to be always divided by 16px */
 
-@media only screen and (max-width: 55em) {
+footer {
+  background-color: var(--primary-dark);
+}
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 0;
+}
+.footer-socials {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+.copyright {
+  color: var(--white);
+}
+
+.nav-copyright {
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid white; */
+}
+.footer-links a {
+  margin-right: 2.5rem;
+}
+.copyright {
+  color: var(--dark-gray);
+  font-size: 1.5rem;
+}
+.socials img {
+  margin-left: 1.5rem;
+}
+.btn-burger {
+  display: none;
+}
+@media only screen and (max-width: 56.25em) {
   html {
-    /* font-size: 50%; */
-    /*  10px x 40 = 400 , 5px % 50 = 250px */
+    font-size: 50%;
+  }
+  .mission {
+    display: none;
+  }
+  .header {
+    padding: 0;
   }
 
-  .card--2 {
-    background-image: url('../../images/mobile/image-night-arcade.jpg');
+  .toggle-nav {
+    position: fixed;
+    inset: 0 0 0 0;
+    height: 100vh;
+    background-color: black;
+    z-index: 99999;
+    padding: 5rem 2.5rem 0 2.5rem;
+  }
+  .toggle-tag-line {
+    display: none;
+  }
+
+  .header .container {
+    width: 100%;
+    padding: 5rem 2.5rem 0 2.5rem;
+  }
+  .navigation {
+    align-items: center;
+    justify-content: space-between;
+
+    /* max-width: 55rem; */
+  }
+  .navigation-right {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50rem);
+    transition: all 1s ease-in;
+  }
+  .navigation-right-toggle {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 85vh;
+    justify-content: center;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .navigation-right a {
+    font-size: 4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    padding-bottom: 4rem;
+  }
+
+  .btn-burger {
+    display: block;
+    background-color: transparent;
+    border: none;
+  }
+
+  /* .card--2 {
+    background-image: url("../../images/mobile/image-night-arcade.jpg");
     background-size: 100%;
     background-position: top;
     background-repeat: no-repeat;
-  }
+  } */
 }
 
 /* 
